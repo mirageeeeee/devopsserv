@@ -1,0 +1,208 @@
+/*! s.min.css v1.0.0 | No License | (c) 2020 */
+body {
+	font-family: 'Segoe UI', Light, sans-serif;
+	background-color: Linen;
+}
+
+ul {
+	padding-left: 0px;
+	margin-top: 0px;
+}
+
+a:hover {
+    text-decoration: none;
+    border-bottom: 1px dashed Blue;
+}
+
+label {
+	cursor: pointer;
+	font-weight: normal;
+	color: SlateBlue;
+}
+label:hover {
+	color: Magenta;
+}
+
+time {
+    background-color: Bisque;
+    border: 1px solid Wheat;
+    border-radius: 4px;
+}
+
+
+.unitNameSpan {
+	font-size:20px;
+	margin-left: 10px;
+	display: inline-block;
+	width: 60px;
+	font-family: monospace;
+	color: LightSlateGray;
+}
+.unitGreen {
+	color: Green;
+}
+.unitRed {
+	color: Red;
+}
+.unitDat {
+	font-size:11px;
+}
+
+
+.btn {
+	margin-left: 10px;
+	width: 100px;
+}
+
+.alertSpan {
+	color:RoyalBlue;
+	margin-left: 10px;
+	display: inline-block;
+}
+
+/* Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 620px;
+}
+
+/* Modal Close Button */
+.close {
+    color: Gray;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.Header {
+	padding:5px 15px;
+	margin:0;
+	font-size:40px;
+	font-weight:100;
+	color:Gray;
+        background-color: rgba(120,120,240,0.2); /* Gray w/ opacity */
+}
+
+.Footer {
+	padding:0;
+	margin:10px;
+/*	font-size:40px;
+  	font-weight:100; */
+	color:RoyalBlue;
+}
+
+.nav li {
+	float:left;
+	margin:5px 0 0 5px;
+	list-style:none;
+	padding:5px 10px;
+	background:red;
+	color:white;
+	border: 1px solid red;
+	border-radius: 6px;
+	font-size:15px;
+	font-weight:600;
+	height: 32px;
+	cursor: pointer;
+}
+.nav li:hover {
+	color:red;
+	background:white;
+}
+
+.header2 {
+	padding:0px 10px;
+	margin:0;
+	color:SlateBlue;
+}
+
+#UserPrf{
+	position:fixed;
+	top:5px;
+	right:120px;
+	font-size:14px;
+	font-weight:500;
+}
+
+#Information {
+	margin-top:5px;
+	padding-left:10px;
+	background:Plum;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 0.25rem;
+	width: 90%;
+	color: Purple;
+}
+#InformationContent {
+	font-size:16px;
+	font-weight:500;
+}
+#InformationFooter {
+	font-size:10px;
+	font-weight:100;
+	text-align: right;
+}
+
+#divUnitList {
+	margin-left: 10px;
+}
+/*
+::-webkit-scrollbar {
+	/* display: none;	*/
+/*	height: 6px;
+	width: 6px;
+	background-color: #ddd9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5559;
+} */
+
+.searchfield{
+	padding-left: 5px;
+	border-radius: 3px;
+	border: 1px solid Silver;
+	background: GhostWhite;
+	/* -webkit-transition: width 0.5s;  /* Transitions */
+	font-size:14px;
+	font-weight:100;
+	width: 100px;
+}
+/* .searchfield:focus{
+	outline: none;
+	font-weight: 500;
+	width: 200px;
+}
+.searchfield:not(:focus){
+	width: 150px;
+} */
+
+.SFAlone {
+  width: 500px;
+  /*text-align: center;*/
+  padding: 10px;
+}

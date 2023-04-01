@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+<meta http-equiv='Cache-Control' content='no-cache'>
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<title>Сервисы DevOps</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/s.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="Header">
+	<span>Сервисы <font color="Crimson">DevOps</font> 🛪</span>
+	<img src='images/itcore_logo.svg' height=60 align=right title='Центр Технической Экспертизы' style="opacity:0.5">
+	<div id = "UserPrf"></div>
+	<div id = "Information" style="display: none;position: fixed; top: 45px; right: 45px; width: 550px;">
+		<div id = "InformationContent"></div>
+		<div id = "InformationFooter">Чтобы закрыть сообщение, нажмите на него.</div>
+	</div>
+</div>
+
+<br><button type="button" class="btn btn-success" id="btnRefresh0">Обновить</button>
+<button type="button" class="btn btn-info" onclick="openInNewTab('http://confluence/pages/viewpage.action?pageId=116367577');"><img src="//confluence/favicon.ico" height=16> &nbsp; About</button>
+<button type="button" class="btn btn-info" onclick="openInNewTab('http://alfanode:8094/listinfo');">ПО в юнитах</button>
+<button type="button" class="btn btn-info" onclick="openInNewTab('http://alfanode:8098/eodvision');">EODы</button>
+<!-- btn-warning is yellow-->
+
+<div id="MDUnitList">
+  <br>
+
+  <div class = "SFAlone">
+    <input id="searchField0" class="searchfield" type="text" placeholder="Фильтр...">
+    &nbsp; &nbsp; <label><input type="checkbox" id="inRun" class="chk"> in progress</label>
+    &nbsp; &nbsp; <label><input type="checkbox" id="inUpd" class="chk" checked> refresh 30s</label>
+    &nbsp; &nbsp; <label><input type="checkbox" id="inBg" class="chk"> dark </label>
+  </div>
+
+  <div id="divUnitList"></div>
+</div>
+
+<div class="Footer">
+	<hr>feedback: <a href=mailto:SandboxEQ>SandboxEQ</a>
+</div>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="mmClose">&times;</span>
+      <span class="Header" id="mmCap"></span><br>
+      <!-- <img src=images/EOD.png width=100 alt=EOD align=left style="padding: 0px "> -->
+			<span id="mmSummary" style="color:grey; padding:5px 15px"></span>
+			<hr>
+
+			<div id="eodConfig">
+				<label> C05 backup (beta) &nbsp; <input type="checkbox" id="mmC05" class="chk" checked> </label> <br><br>
+				Stop before: 
+					<select class="custom-select" id="inputGroupSelect0">
+						<option selected> </option>
+						<option>Pre-EOD</option>
+						<option>EOD</option>
+						<option>Post-EOD</option>
+						<option>Usraft</option>
+					</select> 
+			</div>
+
+			<div id="unitConfig">
+				<span id="mmPause" style="color:grey"></span>
+				<button type="button" class="btn btn-warning" id="mmRmvStp">Убрать</button>
+				<hr>
+				<span id="restore" style="color:grey">Откатить юнит на состояние: </span><br>
+				<select class="custom-select" id="inputGroupSelect1" size=5 style="border: dotted 1px grey;">
+					<option selected> </option>
+				</select>
+				<br><br><input id="mmWhyRoll" type="text" placeholder="Причина отката" size=35>
+				<button type="button" class="btn btn-danger" id="mmRoll">Откат</button>
+				<hr>
+				<span style="color:grey">Доступ: </span><br>
+				<input id="mmUserU" type="text" value="U_">
+				<select class="custom-select" id="inputGroupSelect2" size=1>
+					<option>EOD</option>
+					<option>RECREATE</option>
+					<option selected>SANDBOX</option>
+				</select>
+				&nbsp;<button type="button" class="btn btn-success" id="mmAddUsr">Добавить</button>
+				&nbsp;<button type="button" class="btn btn-warning" id="mmDltUsr">Удалить</button>
+				<br>
+				<span id="authlist" style="color:grey">Авторизованные пользователи: </span><br>
+				<select class="custom-select" id="inputGroupSelect3" size=5 style="border: dotted 1px grey;">
+					<option selected> </option>
+				</select>
+				<hr>
+			</div>
+      <br>
+      <button type="button" class="btn btn-danger" id="mmStart">Пуск!</button>
+      <button type="button" class="btn btn-light" id="mmCancel">Отмена</button>
+    </div>
+</div>
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/core.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+  <meta http-equiv='Cache-Control' content='no-cache'>
+  <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+  <title>Запуск пересоздания тестового юнита Equation</title>
+
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="Header">
+    <span>Запуск пересоздания тестового юнита <font color="Blue">Equation. </font>
+      <font color="Crimson">DevOps</font>
+    </span>
+    <div id="UserPrf"></div>
+    <div id="Information" style="display: none;">
+      <div id="InformationContent"></div>
+      <div id="InformationFooter">Чтобы закрыть окно, нажмите на него.</div>
+    </div>
+  </div>
+
+  <br>
+
+  <div id='tabs'>
+    <div id="issues_tab1" class="tab">
+      <input type="radio" id="tab1" name="tab-group" checked>
+      <label for="tab1" class="tab-title">Подтянуть информацию из заявки</label>
+    </div>
+    <div id="general_information_tab2" class="tab">
+      <input type="radio" id="tab2" name="tab-group">
+      <label for="tab2" class="tab-title">Общая информация о запуске</label>
+    </div>
+    <div id="requirements_tab3" class="tab">
+      <input type="radio" id="tab3" name="tab-group">
+      <label for="tab3" class="tab-title">Информация по требованиям</label>
+    </div>
+  </div>
+
+  <div id = "ReqDetaleRecr" style="display: none">
+    <div id = "ReqDetaleContentRecr">
+      <div class = "menuDiv">
+        <ul class="nav">
+          <li id = "btnCancelRecr">X</li>
+        </ul>
+      </div>
+      <br>
+      <div id = 'RequestText' class = 'DetaleInfo'>Please wait....</div>
+    </div>
+  </div>
+
+  <div id = "ValidErrorsDetale" style="display: none">
+    <div id = "ValidErrorsDetaleContent">
+      <div class = "menuDiv">
+        <ul class="nav">
+          <li id = "btnCancelValidErrors">X</li>
+          <div class="HeaderInfo">Ошибки перед запуском пересоздания</div>
+        </ul>
+      </div>
+      <br>
+      <div id = 'ValidErrorsText' class = 'DetaleInfo'></div>
+    </div>
+  </div>
+
+  <div>
+
+    <div id="tabC1" class="tab-content">
+      <table>
+
+        <tr>
+          <td class="left-col">
+            Сортировать:
+          </td>
+          <td class="inner-element">
+            <input id="issues_by_user" type="radio" name="issuesUser">
+            <label class="recr_button" for="issues_by_user">Мои заявки</label>
+            <input id="issues_all" type="radio" name="issuesUser" checked>
+            <label class="recr_button" for="issues_all">Все заявки</label>
+          </td>
+          <td class="medium-col">
+            Юнит Equation:
+          </td>
+          <td>
+            <select id="issues_by_unit"></select>
+          </td>
+        </tr>
+
+      </table>
+
+      <table>
+
+        <tr>
+          <td class="left-col">
+            <div class="issueHeader">Заявки:</div>
+          </td>
+          <td class="inner-element">
+            <div id="head_issues_content">
+            </div>
+            <div class="scrollIssues">
+              <ul id="issues_content">
+              </ul>
+            </div>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+
+    <div id="tabC2" class="tab-content">
+      <table>
+
+        <tr>
+          <td class="left-col">
+            Задача:
+          </td>
+          <td class="inner-element">
+            <div id="issue">
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Создана:
+          </td>
+          <td class="inner-element">
+            <div id="created">
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Заказчик:
+          </td>
+          <td class="inner-element">
+            <div id="reporter">
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Действие:
+          </td>
+          <td class="inner-element">
+            <div id="action">
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Обоснование необходимости:
+          </td>
+          <td class="inner-element">
+            <div id="rationale"></div>
+          </td>
+        </tr>
+
+        <tr id="purpose_block">
+          <td class="left-col">
+            Назначение юнита:
+          </td>
+          <td class="inner-element">
+            <div id="purpose"></div>
+          </td>
+        </tr>
+
+        <tr id="runsystem_block">
+          <td class="left-col">
+            Система на которой запускаем пересоздание:
+          </td>
+          <td class="inner-element">
+            <select id="runsystem"></select>
+          </td>
+        </tr>
+
+        <tr id="unit_from_block">
+          <td class="left-col">
+            <div>Из юнита Equation:</div>
+          </td>
+          <td class="inner-element">
+            <select id="unit_from"></select>
+          </td>
+        </tr>
+
+        <tr id="unit_to_block">
+          <td class="left-col">
+            <div>Юнит Equation:</div>
+          </td>
+          <td class="inner-element">
+            <div id="recreate_text"></div>
+            <select id="unit_to"></select>
+          </td>
+        </tr>
+
+        <tr id="unitowner_block">
+          <td class="left-col">
+            Владелец:
+          </td>
+          <td class="inner-element">
+            <div id="unitowner"></div>
+          </td>
+        </tr>
+
+        <tr id="restore_block">
+          <td class="left-col">
+            Способ восстановления:
+          </td>
+          <td class="inner-element">
+            <input id="restore_by_lastdate" type="radio" name="modrestore">
+            <label for="restore_by_lastdate">С лент с последнего сохранения</label><br>
+            <input id="restore_by_date" type="radio" name="modrestore">
+            <label for="restore_by_date">С лент за определенную дату</label><br>
+            <input id="restore_by_SN" type="radio" name="modrestore">
+            <label for="restore_by_SN">С лент по SN (только для ALFAMOSU)</label><br>
+            <input id="restore_from_KTMP" type="radio" name="modrestore">
+            <label for="restore_from_KTMP">Из KTMP</label><br>
+            <input id="restore_from_libraries" type="radio" name="modrestore">
+            <label for="restore_from_libraries">Прямой заливкой из библиотек</label>
+          </td>
+        </tr>
+
+        <tr id="bdate_block">
+          <td class="left-col">
+            Дата в юните после пересоздания:
+          </td>
+          <td class="inner-element">
+            <input id="BDATE" class="inner-date" type="date">
+          </td>
+        </tr>
+
+        <tr id="snid_block">
+          <td class="left-col">
+            Номер UNITARC/SN:
+          </td>
+          <td class="inner-element">
+            <input id="SNID" size='5' type="number" value = '00001' maxlength="5">
+          </td>
+        </tr>
+
+        <tr id="mmxstop_block">
+          <td class="left-col">
+            Остановить MIMIX на все время перезаливки клиентских данных?:
+          </td>
+          <td class="inner-element">
+            <input id="MMXSTOP" type="checkbox">
+            <label class="recr_button2" for="MMXSTOP"></label>
+          </td>
+        </tr>
+
+        <tr id="liblelist_block">
+          <td class="left-col">
+            Копировать библиотеки:
+          </td>
+          <td class="inner-element">
+            <div id="librarylist" class= "inner-col">
+            </div>
+          </td>
+        </tr>
+
+        <tr id="rcrlocrmt_block">
+          <td class="left-col">
+            Локальное/межмашинное пересоздание:
+          </td>
+          <td class="inner-element">
+            <input id="local" type="radio" name="modlocal">
+            <label class="recr_button" for="local">Локальное</label>
+            <input id="intermach" type="radio" name="modlocal">
+            <label class="recr_button" for="intermach">Межмашинное</label
+          </td>
+        </tr>
+
+        <tr id="savrstlib_block">
+          <td class="left-col">
+            Перенести библиотеки юнита на удаленную систему?
+          </td>
+          <td class="inner-element">
+            <input id="SAVRSTLIB" type="checkbox">
+            <label class="recr_button2" for="SAVRSTLIB"></label>
+          </td>
+        </tr>
+
+        <tr id="savf_block">
+          <td class="left-col">
+            Сохранить юнит в SAVF-файлы в KTMP?
+          </td>
+          <td class="inner-element">
+            <input id="SAVF" type="checkbox">
+            <label class="recr_button2" for="SAVF"></label>
+          </td>
+        </tr>
+
+        <tr id="dtacprd_block">
+          <td class="left-col">
+            С сжатием?
+          </td>
+          <td class="inner-element">
+            <input id="DTACPRD" type="checkbox">
+            <label class="recr_button2" for="DTACPRD"></label>
+          </td>
+        </tr>
+
+        <tr id="savrst_block">
+          <td class="left-col">
+            Перенести KTMP на удаленную систему?
+          </td>
+          <td class="inner-element">
+            <input id="SAVRST" type="checkbox">
+            <label class="recr_button2" for="SAVRST"></label>
+          </td>
+        </tr>
+
+        <tr id="transmetod_block">
+          <td class="left-col">
+            Метод переноса:
+          </td>
+          <td class="inner-element">
+            <input id="ftpMetod" type="radio" name="modtransmetod">
+            <label class="recr_button" for="ftpMetod">FTP</label>
+            <input id="savrstlibMetod" type="radio" name="modtransmetod">
+            <label class="recr_button" for="savrstlibMetod">SAVRSTLIB</label
+          </td>
+        </tr>
+
+        <tr id="rmtsys_block">
+          <td class="left-col">
+            Имя удаленной системы:
+          </td>
+          <td class="inner-element">
+            <select id="RMTSYS"></select>
+          </td>
+        </tr>
+
+        <tr id="clear_block">
+          <td class="left-col">
+            Прочистка:
+          </td>
+          <td class="inner-element">
+
+            <table>
+              <tr>
+                <td class="inner-element">
+                  <input id="KINPCP" type="checkbox">
+                  <label class="recr_button2" for="KINPCP"></label>
+                </td>
+                <td class="right-col">
+                  Прочистить файлы в библиотеке KINP?
+                </td>
+              </tr>
+              <tr>
+                <td class="inner-element">
+                  <input id="KWRKCP" type="checkbox">
+                  <label class="recr_button2" for="KWRKCP"></label>
+                </td>
+                <td class="right-col">
+                  Прочистить файлы в библиотеке KWRK?
+                </td>
+              </tr>
+              <tr>
+                <td class="inner-element">
+                  <input id="CLRLOG" type="checkbox">
+                  <label class="recr_button2" for="CLRLOG"></label>
+                </td>
+                <td class="right-col">
+                  Прочистить файлы логов в юните?
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+
+        <tr id="savunold_block">
+          <td class="left-col">
+            Сохранить старый юнит перед удалением?
+          </td>
+          <td class="inner-element">
+            <input id="SAVUNOLD" type="checkbox">
+            <label class="recr_button2" for="SAVUNOLD"></label>
+          </td>
+        </tr>
+
+        <tr id="volold_block">
+          <td class="left-col">
+            Номер ленты:
+          </td>
+          <td class="inner-element">
+            <input id="VOLOLD" size='6' type="text" value = '' maxlength="6">
+            <div class='signatures'>
+              Например: AL4446 (если оставить пустым, то в тесте будет выбрана автоматически по медиаклассу!)
+            </div>
+          </td>
+        </tr>
+
+        <tr id="bkpdesold_block">
+          <td class="left-col">
+            Комментарий сохранения:
+          </td>
+          <td class="inner-element">
+            <input id="BKPDESOLD" size='50' type="text" value = '(перед удалением)' maxlength="50">
+          </td>
+        </tr>
+
+        <tr id="savunnew_block">
+          <td class="left-col">
+            Сохранить новый юнит после пересоздания?
+          </td>
+          <td class="inner-element">
+            <input id="SAVUNNEW" type="checkbox">
+            <label class="recr_button2" for="SAVUNNEW"></label>
+          </td>
+        </tr>
+
+        <tr id="volnew_block">
+          <td class="left-col">
+            Номер ленты:
+          </td>
+          <td class="inner-element">
+            <input id="VOLNEW" size='6' type="text" value = '' maxlength="6">
+            <div class='signatures'>
+              Например: AL4446 (если оставить пустым, то в тесте будет выбрана автоматически по медиаклассу!)
+            </div>
+          </td>
+        </tr>
+
+        <tr id="bkpdesnew_block">
+          <td class="left-col">
+            Комментарий сохранения:
+          </td>
+          <td class="inner-element">
+            <input id="BKPDESNEW" size='50' type="text" value = '(сразу после пересоздания)' maxlength="50">
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Комментарий на KFIL:
+          </td>
+          <td class="inner-element">
+            <input id="COMMENT" size='37' type="text" value = '' maxlength="37">
+            <div class='signatures'>
+              Фамилия  - модуль             24х7-de (строго позиционно!)
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Деперсонифицировать юнит?
+          </td>
+          <td class="inner-element">
+            <input id="DEPERS" type="checkbox">
+            <label class="recr_button2" for="DEPERS"></label>
+          </td>
+        </tr>
+
+        <tr id="Set24x7_block">
+          <td class="left-col">
+            Режим 24x7 в юните:
+          </td>
+          <td class="inner-element">
+            <input id="SET24X7" type="checkbox">
+            <label class="recr_button" for="SET24X7"></label>
+          </td>
+        </tr>
+
+        <tr id="one_to_one_block">
+          <td class="left-col">
+            Пересоздать юнит:
+          </td>
+          <td class="inner-element">
+            <input id="ONE2ONE" type="radio" name="modreq">
+            <label class="recr_button" for="ONE2ONE">Один в один</label>
+            <input id="on_requirements" type="radio" name="modreq">
+            <label class="recr_button" for="on_requirements">По требованиям</label>
+          </td>
+        </tr>
+
+        <tr id="core_block">
+          <td class="left-col">
+            Оставить ядро, но резать модули?
+          </td>
+          <td class="inner-element">
+            <input id="CORE" type="checkbox">
+            <label class="recr_button2" for="CORE"></label>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+
+    <div id="tabC3" class="tab-content">
+      <table>
+
+        <tr>
+          <td class="left-col">
+            <div>Формализация требований по отбору</div>клиентов/счетов для наполнения данными:
+          </td>
+          <td class="inner-element">
+            <div id="requirements"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Подтянуть клиентов из внешнего файла?
+          </td>
+          <td class="inner-element">
+            <input id="EXTCUS" type="checkbox">
+            <label class="recr_button2" for="EXTCUS"></label>
+          </td>
+        </tr>
+
+        <tr id="extcuspath_block">
+          <td class="left-col">
+            Путь доступа для внешнего файла клиентов:
+          </td>
+          <td class="inner-element">
+            <input id="EXTCUSPATH" size='112' type="text" value = '' maxlength="200">
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Подтянуть счета из внешнего файла?
+          </td>
+          <td class="inner-element">
+            <input id="EXTACC" type="checkbox">
+            <label class="recr_button2" for="EXTACC"></label>
+          </td>
+        </tr>
+
+        <tr id="extaccpath_block">
+          <td class="left-col">
+            Путь доступа для внешнего файла счетов:
+          </td>
+          <td class="inner-element">
+            <input id="EXTACCPATH" size='112' type="text" value = '' maxlength="200">
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Подтянуть бранчи из внешнего файла?
+          </td>
+          <td class="inner-element">
+            <input id="EXTBBN" type="checkbox">
+            <label class="recr_button2" for="EXTBBN"></label>
+          </td>
+        </tr>
+
+        <tr id="extbbnpath_block">
+          <td class="left-col">
+            Путь доступа для внешнего файла бранчей
+          </td>
+          <td class="inner-element">
+            <input id="EXTBBNPATH" size='112' type="text" value = '' maxlength="200">
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Включить в выборку зарплатные счета отделения 0699, 0499?
+          </td>
+          <td class="inner-element">
+            <input id="ACCFEE" type="checkbox">
+            <label class="recr_button2" for="ACCFEE"></label>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Включить в выборку удаленные счета?
+          </td>
+          <td class="inner-element">
+            <input id="DELACC" type="checkbox">
+            <label class="recr_button2" for="DELACC"></label>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Оставить проводки (дней):
+          </td>
+          <td class="inner-element">
+            <input id="POSTDAYS" size='2' type="number" value = '00' maxlength="2">
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Оставить клиентские данные - СР:
+          </td>
+          <td class="inner-element">
+            <input id="SR" type="checkbox">
+            <label class="recr_button2" for="SR"></label>
+          </td>
+        </tr>
+
+        <tr id = "sr_block">
+          <td class="left-col">
+            <div>Оставить документы СР (дней):</div>
+          </td>
+          <td class="inner-element">
+            <input id="SRDAYS" size='2' type="number" value = '00' maxlength="2">
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Оставить клиентские данные в функциональных модулях:
+            <div class = 'checkedBefrorComment'>Светло-синим отмечены модули, выбранные в предыдущем пересоздании</div>
+          </td>
+          <td class="inner-element">
+            <div id="modulescontent" class = 'inner-col'>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Дополнительные требования:
+          </td>
+          <td class="inner-element">
+            <div id="additionally"></div>
+          </td>
+        </tr>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <div class="Footer">
+    <ul class="nav">
+      <li id = "btnApproveRecr">Запустить пересоздание</li>
+      <li id = "btnResetRecr">Сбросить</li>
+      <li id = "btnHelpRecr" onclick="openInNewTab('http://confluence.moscow.alfaintra.net/pages/viewpage.action?pageId=967653633');">Инструкция</li>
+    </ul>
+  </div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.js"></script>
+
+  <script src="js/core.js"></script>
+  <script src="js/main.recr.run.js"></script>
+
+</body>
+
+</html>

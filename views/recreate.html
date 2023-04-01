@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+  <meta http-equiv='Cache-Control' content='no-cache'>
+  <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+  <title>Заявка на пересоздание тестового юнита Equation</title>
+
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="Header">
+    <span>Заявка на пересоздание тестового юнита <font color="Blue">Equation. </font>
+      <font color="Crimson">DevOps</font>
+    </span>
+    <div id="UserPrf"></div>
+    <div id="Information" style="display: none;">
+      <div id="InformationContent"></div>
+      <div id="InformationFooter">Чтобы закрыть окно, нажмите на него.</div>
+    </div>
+  </div>
+
+  <br>
+
+  <div id='tabs'>
+    <div class="tab">
+      <input type="radio" id="tab1" name="tab-group" checked>
+      <label for="tab1" class="tab-title">Общая информация</label>
+    </div>
+    <div id="requirements_tab2" class="tab">
+      <input type="radio" id="tab2" name="tab-group">
+      <label for="tab2" class="tab-title">Требования</label>
+    </div>
+    <div id="issues_tab2" class="tab">
+      <input type="radio" id="tab3" name="tab-group">
+      <label for="tab3" class="tab-title">Просмотр заведенных заявок</label>
+    </div>
+  </div>
+
+  <div id = "ReqDetaleRecr" style="display: none">
+    <div id = "ReqDetaleContentRecr">
+      <div class = "menuDiv">
+        <ul class="nav">
+          <li id = "btnCancelRecr">X</li>
+        </ul>
+      </div>
+      <br>
+      <div id = 'RequestText' class = 'DetaleInfo'>Please wait....</div>
+    </div>
+  </div>
+
+  <div id = "ValidErrorsDetale" style="display: none">
+    <div id = "ValidErrorsDetaleContent">
+      <div class = "menuDiv">
+        <ul class="nav">
+          <li id = "btnCancelValidErrors">X</li>
+          <div class="HeaderInfo">Ошибки валидации параметров перед заведением заявки</div>
+        </ul>
+      </div>
+      <br>
+      <div id = 'ValidErrorsText' class = 'DetaleInfo'></div>
+    </div>
+  </div>
+
+  <div>
+
+    <div id="tabC1" class="tab-content">
+      <table>
+
+        <tr>
+          <td class="left-col">
+            Действие:
+          </td>
+          <td class="inner-element">
+            <input id="create_id" type="radio" name="modrecr">
+            <label class="recr_button" for="create_id">Создать</label>
+            <input id="recreate_id" type="radio" name="modrecr" checked>
+            <label class="recr_button" for="recreate_id">Пересоздать</label>
+            <input id="delete_id" type="radio" name="modrecr">
+            <label class="recr_button" for="delete_id">Удалить</label>
+          </td>
+        </tr>
+
+        <tr id="rationale_block">
+          <td class="left-col">
+            <div class="required">Обоснование необходимости:</div>
+          </td>
+          <td class="inner-element">
+            <textarea id="rationale" cols="150" rows="3"></textarea>
+            <div class='signatures'>
+              "Служебная необходимость" не является обоснованием предоставления сервиса.
+            </div>
+          </td>
+        </tr>
+
+        <tr id="purpose_block">
+          <td class="left-col">
+            <div class="required">Назначение юнита:</div>
+          </td>
+          <td class="inner-element">
+            <input id="purpose" type="text" size='148'>
+            <div class='signatures'>
+              В этом пункте необходимо указывать для проведения какого тестирования будет использоваться полигон и его статус (компонентный, интеграционный либо предпромышленный).
+            </div>
+          </td>
+        </tr>
+
+        <tr id="unit_from_block">
+          <td class="left-col">
+            <div class="required">Из юнита Equation:</div>
+          </td>
+          <td class="inner-element">
+            <select id="unit_from"></select>
+          </td>
+        </tr>
+
+        <tr id="unit_to_block">
+          <td class="left-col">
+            <div class="required">Юнит Equation:</div>
+          </td>
+          <td class="inner-element">
+            <div id="recreate_text"></div>
+            <select id="unit_to"></select>
+          </td>
+        </tr>
+
+        <tr id="unitowner_block">
+          <td class="left-col">
+            Владелец:
+          </td>
+          <td class="inner-element">
+            <div id="unitowner"></div>
+          </td>
+        </tr>
+
+        <tr id="lifetime_block">
+          <td class="left-col">
+            <div class="required">Планируемый срок жизни юнита:</div>
+          </td>
+          <td class="inner-element">
+            <input id="lifetime" class="inner-date" type="date">
+            <div class='signatures'>
+              Указывается реальный срок, до которого юнит будет использоваться для тестирования(для интеграционного и предпромышленного можно не указывать).<br>
+              По истечении срока юнит будет определен к удалению. На удаление будет высылаться запрос и при отказе на удаление будет требоваться обоснование.
+            </div>
+          </td>
+        </tr>
+
+        <tr id="r24x7_block">
+          <td class="left-col">
+            Режим 24x7 в юните:
+          </td>
+          <td class="inner-element">
+            <input id="r24x7" type="checkbox">
+            <label class="recr_button" for="r24x7"></label>
+          </td>
+        </tr>
+
+        <tr id="one_to_one_block">
+          <td class="left-col">
+            Пересоздать юнит:
+          </td>
+          <td class="inner-element">
+            <input id="one_to_one" type="radio" name="modreq">
+            <label class="recr_button" for="one_to_one">Один в один</label>
+            <input id="on_requirements" type="radio" name="modreq" checked>
+            <label class="recr_button" for="on_requirements">По требованиям</label>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+
+    <div id="tabC2" class="tab-content">
+      <table>
+
+        <tr>
+          <td class="left-col">
+            Дата в юните после пересоздания:
+          </td>
+          <td class="inner-element">
+            <input id="unitdate" class="inner-date" type="date">
+            <div class='signatures'>Остается пустым, если дата в юните не важна.</div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            <div class="required">Формализация требований по отбору</div>клиентов/счетов для наполнения данными:
+          </td>
+          <td class="inner-element">
+            <textarea id="requirements" cols="148" rows="10"></textarea>
+            <div class='signatures'>
+              Указываются четкие критерии отбора счетов (по отделениям, по спискам, по использованию в договорах АМ, КМ, МКК) либо количество клиентов на конкретных отделениях. <br>
+              Примеры запросов: необходимо оставить всех клиентов ЮЛ и их счета по отделения 0410, 0256; необходимо оставить по 100 ЮЛ по отделениям 0000, 0567 и т.д. <br>
+              Необходимо понимать, что существует зависимость между количеством счетов и длительностью EOD. <br>
+              По умолчанию всегда остаются все счета банков и все внутренние счета и, соответственно, все клиенты таких счетов.
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Оставить проводки (дней):
+          </td>
+          <td class="inner-element">
+            <input id="postdays" size='2' type="number" value = '00' maxlength="2">
+            <div class='signatures'>
+              Указывается глубина проводок (в днях), которые необходимо оставить в юните. <br>
+              Количество проводок также оказывает значительно влияние на длительность EOD поэтому нецелесообразно оставлять проводок больше 3 дней. <br>
+              Если проводки не требуются - параметр можно не заполнять.
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Оставить клиентские данные - СР:
+          </td>
+          <td class="inner-element">
+            <input id="sr" type="checkbox">
+            <label class="recr_button2" for="sr"></label>
+          </td>
+        </tr>
+
+        <tr id = "sr_block">
+          <td class="left-col">
+            <div class="required">Оставить документы СР (дней):</div>
+          </td>
+          <td class="inner-element">
+            <input id="srdays" size='2' type="number" value = '00' maxlength="2">
+            <div class='signatures'>
+              Глубина, по которую необходимо оставить документы Системы Расчетов. <br>
+              По умолчанию всегда совпадает с глубиной оставляемых проводок. <br>
+              Нецелесообразно использовать количество документов более чем за 7 дней.
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Оставить клиентские данные в функциональных модулях:
+          </td>
+          <td class="inner-element">
+            <div id="modulescontent" class = 'inner-col'>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="left-col">
+            Дополнительные требования:
+          </td>
+          <td class="inner-element">
+            <textarea id="additionally" cols="148" rows="4"></textarea>
+          </td>
+        </tr>
+
+      </table>
+
+    </div>
+
+    <div id="tabC3" class="tab-content">
+      <table>
+
+        <tr>
+          <td class="left-col">
+            Сортировать:
+          </td>
+          <td class="inner-element">
+            <input id="issues_by_user" type="radio" name="issuesUser" checked>
+            <label class="recr_button" for="issues_by_user">Мои заявки</label>
+            <input id="issues_all" type="radio" name="issuesUser">
+            <label class="recr_button" for="issues_all">Все заявки</label>
+          </td>
+          <td class="medium-col">
+            Юнит Equation:
+          </td>
+          <td>
+            <select id="issues_by_unit"></select>
+          </td>
+        </tr>
+
+      </table>
+
+      <table>
+
+        <tr>
+          <td class="left-col">
+            <div class="issueHeader">Заявки:</div>
+          </td>
+          <td class="inner-element">
+            <div id="head_issues_content">
+            </div>
+            <div class="scrollIssues">
+              <ul id="issues_content">
+              </ul>
+            </div>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+
+  </div>
+
+  <div class="Footer">
+    <ul class="nav">
+      <li id = "btnApproveRecr">На согласование</li>
+      <li id = "btnResetRecr">Сбросить</li>
+      <li id = "btnHelpRecr" onclick="openInNewTab('http://confluence.moscow.alfaintra.net/pages/viewpage.action?pageId=336497632');">Инструкция</li>
+    </ul>
+  </div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.js"></script>
+
+  <script src="js/core.js"></script>
+  <script src="js/main.recr.js"></script>
+
+</body>
+
+</html>

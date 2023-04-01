@@ -1,0 +1,516 @@
+
+body {
+	font-family: 'Segoe UI', Light, sans-serif;
+}
+
+ul {
+	padding-left: 0px;
+	margin-top: 0px;
+}
+
+a:hover {
+  text-decoration: none;
+  border-bottom: 1px dashed blue;
+}
+
+.unitNameSpan {
+
+	font-size:20px;
+	margin-left: 10px;
+	display: inline-block;
+	width: 60px;
+	font-family: monospace;
+	color: LightSlateGray;
+}
+.unitGreen {
+	color: Green;
+}
+.unitRed {
+	color: Red;
+}
+
+.btn {
+	margin-left: 10px;
+	width: 100px;
+}
+
+.alertSpan {
+	color:RoyalBlue;
+	margin-left: 10px;
+	display: inline-block;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+}
+
+/* The Close Button */
+.close {
+  color: #888888;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.Header {
+	padding:0px 5px;
+	margin:0;
+	font-size:40px;
+	font-weight:100;
+	color:#808080;
+}
+
+.Footer {
+	padding:0;
+	margin:10px;
+/*	font-size:40px;
+  	font-weight:100; */
+	color:#808080;
+}
+
+.nav li {
+	float:left;
+	margin:5px 0 0 5px;
+	list-style:none;
+	padding:5px 10px;
+	background:red;
+	color:white;
+	border: 1px solid red;
+	border-radius: 6px;
+	font-size:15px;
+	font-weight:600;
+	height: 32px;
+	cursor: pointer;
+}
+
+.nav li:hover {
+	color:red;
+	background:white;
+}
+
+
+.header2 {
+	padding:0px 10px;
+	margin:0;
+	color:slateblue;
+}
+
+
+#UserPrf{
+	position:fixed;
+	top:5px;
+	right:120px;
+	font-size:14px;
+	font-weight:500;
+
+}
+#Information {
+	margin-top:5px;
+	padding-left:10px;
+	background:Pink;
+	width: 90%;
+	color: Crimson;
+}
+#InformationContent {
+	font-size:16px;
+	font-weight:500;
+}
+#InformationFooter {
+	font-size:10px;
+	font-weight:100;
+}
+
+#divUnitList {
+	margin-left: 10px;
+}
+
+::-webkit-scrollbar {
+	/* display: none;	*/
+	height: 6px;
+	width: 6px;
+	background-color: #ddd9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5559;
+}
+
+.searchfield{
+	padding-left: 5px;
+	border-radius: 3px;
+	border: 1px solid #cecece;
+	background: #F6F6f6;
+	/* -webkit-transition: width 0.5s;  /* Transitions */
+	font-size:14px;
+	font-weight:100;
+	width: 100px;
+}
+
+/* .searchfield:focus{
+	outline: none;
+	font-weight: 500;
+	width: 70%;
+}
+
+.searchfield:not(:focus){
+	width: 150px;
+} */
+
+.SFAlone {
+  width: 500px;
+  /*text-align: center;*/
+  padding: 10px;
+}
+
+
+
+/* ---------------------------------------- для RECREATE ------------------------------------------------------*/
+
+/* Вкладки */
+#tabs {
+	margin-left: 10px;
+}
+
+.tab, .tab-title {
+  display: inline-block; /* Выстраиваем по горизонтали */
+}
+
+.tab-title {
+	border-radius: 6px 6px 0px 0px;
+	margin-bottom: 0px;
+  background: #ccc; /* Цвет фона */
+	padding: 5px 10px; /* Поля вокруг текста */
+  border-bottom: none; /* Снизу линию убираем */
+}
+
+/* Содержимое вкладок */
+.tab-content {
+	margin-left: 10px;
+	background: #fff; /* Цвет фона */
+  padding: 10px; /* Поля вокруг текста */
+  width: calc(100% - 20px); /* Ширина содержимого */
+	min-width: 1000px;
+  display: none; /* Прячем вкладку */
+}
+
+.tab :checked + .tab-title {
+  position: relative; /* Относительное позиционирование */
+  background: #fff; /* Цвет фона */
+  top: 1px; /* Сдвигаем вниз */
+  z-index: 1; /* Отображаем поверх содержимого */
+}
+
+.tab-inner {
+	font-weight:500;
+	margin: 16px;
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+input[type="checkbox"] {
+	display: none;
+}
+
+
+/* Радиокнопки внутри каждой вкладки */
+.recr_button{
+	padding: 6px;
+	border-radius: 6px;
+	background: whitesmoke;
+	color: gray;
+	box-shadow: 1px 1px 1px 0px #000;
+	margin-bottom: 0px;
+}
+
+input:checked + .recr_button {
+	background: #ccc;
+	color: #000;
+	box-shadow: 1px 1px 1px 0px #000;
+}
+
+input[type="checkbox"]:checked + .recr_button:after {
+	content: "Вкл";
+}
+input[type="checkbox"] + .recr_button:after {
+	content: "Выкл";
+}
+
+.recr_button2{
+	padding: 6px;
+	border-radius: 6px;
+	background: whitesmoke;
+	color: gray;
+	box-shadow: 1px 1px 1px 0px #000;
+	margin-bottom: 0px;
+}
+
+input:checked + .recr_button2 {
+	background: #ccc;
+	color: #000;
+	box-shadow: 1px 1px 1px 0px #000;
+}
+
+input:checked + .checkedbefror {
+	background: #849aff;
+}
+
+input[type="checkbox"]:checked + .recr_button2:after {
+	content: "Да";
+}
+input[type="checkbox"] + .recr_button2:after {
+	content: "Нет";
+}
+
+.issue:hover {
+	background:#ccc;
+	cursor: pointer;
+}
+
+/* Другие элементы внутри каждой вкладки */
+.left-col {
+	text-align: right;
+	vertical-align: top;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-weight: bold;
+	min-width: 320px;
+}
+
+.medium-col {
+	vertical-align: top;
+	padding-top: 4px;
+	padding-left: 30px;
+	padding-right: 10px;
+	font-weight: bold;
+	min-width: 100px;
+}
+
+.right-col {
+	text-align: left;
+	vertical-align: top;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-weight: bold;
+}
+
+.inner-head {
+	padding-top: 7px;
+	padding-left: 325px;
+	padding-bottom: 7px;
+	font-weight: bold;
+}
+
+.inner-col {
+	text-align: left;
+	max-width: 840px;
+}
+
+.inner-element {
+	padding-bottom: 5px;
+}
+
+.inner-date {
+	padding-bottom: -5px;
+}
+
+.signatures {
+	font-size:11px;
+}
+
+textarea {
+	resize: none; /* Запрещаем изменять размер */
+	display: block;
+}
+
+.checkedBefrorComment { /* комментарий к быранным модулям */
+	color: #5d77c1;
+}
+
+.required:after { /* элемент * - поле обязательно к заполнению */
+	color: #FF0000;
+	content: ' *';
+}
+
+/* Окно информации о заведенной задаче */
+#ReqDetaleRecr {
+	z-index:50;
+  width:100%;
+  min-height:100%;
+  background-color: rgba(1,1,1,0.5);
+  overflow:hidden;
+  position:fixed;
+  top:0px;
+}
+
+#ReqDetaleRecr #ReqDetaleContentRecr {
+  margin:140px auto 0px auto;
+  width: 600px;
+  height: auto;
+  background-color: white;
+  border-radius:6px;
+  box-shadow: 0px 0px 10px #000;
+	padding-bottom: 25px;
+}
+
+.menuDiv {
+	display: inline-block;
+	width: 100%;
+	text-align: right;
+}
+
+.DetaleInfo {
+	width: 100%;
+	height: 100px;
+	text-align: center;
+	margin-top:0px;
+}
+
+.HeaderInfo {
+	font-weight: bold;
+	text-align: center;
+	margin-top:11px;
+}
+
+#ReqDetaleContentRecr .nav li {
+	float:right;
+	margin:5px 5px 0 0;
+}
+
+/* Окно информации об ошибках валидации */
+#ValidErrorsDetale {
+	z-index:50;
+  width:100%;
+  min-height:100%;
+  background-color: rgba(1,1,1,0.5);
+  overflow:hidden;
+  position:fixed;
+  top:0px;
+}
+
+#ValidErrorsDetale #ValidErrorsDetaleContent {
+  margin:140px auto 0px auto;
+  width: 1000px;
+  height: auto;
+  background-color: white;
+  border-radius:6px;
+  box-shadow: 0px 0px 10px #000;
+	padding-bottom: 25px;
+}
+
+/* Контейнеры функциональных модулей */
+.funcDiv {
+	padding-bottom: 5px;
+  width: 350px; /* Ширина содержимого */
+	min-width: 350px;
+	display: inline-block;
+	text-align: left;
+}
+
+/* Контейнеры списка библиотек */
+.libDiv {
+	padding-bottom: 5px;
+  width: 300px; /* Ширина содержимого */
+	min-width: 300px;
+	display: inline-block;
+	text-align: left;
+}
+
+/* Содержание вкладки с задачами Jira */
+.scrollIssues {
+	height: 300px;
+	width: 875px;
+	overflow: auto;
+}
+
+.issueHeader {
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+.issueLink {
+	font-size: 15px;
+  margin-left: 10px;
+	width: 80px;
+  display: inline-block;
+  font-family: monospace;
+}
+
+.issueDate {
+	font-size: 15px;
+  margin-left: 20px;
+  display: inline-block;
+  width: 100px;
+  font-family: monospace;
+}
+
+.issueUnt {
+	font-size: 15px;
+  margin-left: 10px;
+  display: inline-block;
+  width: 40px;
+  font-family: monospace;
+}
+
+.issueAct {
+	font-size: 15px;
+  margin-left: 10px;
+  display: inline-block;
+  width: 110px;
+  font-family: monospace;
+}
+
+.issueReporter {
+	font-size: 15px;
+  margin-left: 10px;
+  display: inline-block;
+  width: 350px;
+  font-family: monospace;
+}
+
+.issueRepImg {
+	font-size: 15px;
+  margin-left: 10px;
+  display: inline-block;
+  width: 50px;
+  font-family: monospace;
+}
+
+.issueStatus {
+	font-size: 15px;
+  margin-left: 10px;
+  display: inline-block;
+  width: 100px;
+  font-family: monospace;
+}
